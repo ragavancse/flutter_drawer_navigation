@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SideBar extends StatelessWidget {
-  const SideBar({super.key});
+  final Function(String) onItemSelected;
+
+  const SideBar({super.key, required this.onItemSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -17,85 +19,35 @@ class SideBar extends StatelessWidget {
                   AssetImage('assets/pexels-chloekalaartist-1043474.jpg'),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.all_inbox),
-            title: Text('All inboxes'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.inbox),
-            title: Text('Primery'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.fluorescent_outlined),
-            title: Text('Promotion'),
-            onTap: () {},
-          ),
-          ListTile(
-                        leading: Icon(Icons.face),
-
-            title: Text('Social'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Starred'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Snoozed'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Important'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Send'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Scheduled'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Outbox'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Drafts'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('All mail'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Spam'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Trash'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Calendar'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Contacts'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Settings'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Help & feedback'),
-            onTap: () {},
-          ),
+          _buildListTile(context, 'All inboxes', Icons.all_inbox),
+          _buildListTile(context, 'Primery', Icons.inbox),
+          _buildListTile(
+              context, 'Promotion', Icons.account_balance_wallet_outlined),
+          _buildListTile(context, 'Social', Icons.face),
+          _buildListTile(context, 'Starred', Icons.star_border),
+          _buildListTile(context, 'Snoozed', Icons.snooze),
+          _buildListTile(context, 'Important', Icons.import_contacts_outlined),
+          _buildListTile(context, 'Send', Icons.send),
+          _buildListTile(context, 'Scheduled', Icons.schedule),
+          _buildListTile(context, 'Outbox', Icons.outbox),
+          _buildListTile(context, 'Drafts', Icons.drafts),
+          _buildListTile(context, 'All mail', Icons.mail_outline),
+          _buildListTile(context, 'Spam', Icons.mark_email_unread_outlined),
+          _buildListTile(context, 'Trash', Icons.restore_from_trash_rounded),
+          _buildListTile(context, 'Calendar', Icons.calendar_month_outlined),
+          _buildListTile(context, 'Contacts', Icons.contact_page_outlined),
+          _buildListTile(context, 'Settings', Icons.settings),
+          _buildListTile(context, 'Help & feedback', Icons.help_outline),
         ],
       ),
+    );
+  }
+
+  Widget _buildListTile(BuildContext context, String title, IconData icon) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      onTap: () => onItemSelected(title),
     );
   }
 }

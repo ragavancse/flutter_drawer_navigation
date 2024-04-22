@@ -13,16 +13,19 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   List<String> data = [
-    'Apple',
-    'Banana',
-    'Cherry',
-    'Date',
-    'Elderberry',
-    'Fig',
-    'Grapes',
-    'Honeydew',
-    'Kiwi',
-    'Lemon',
+    'Aaron',
+    'Abigail',
+    'Adam',
+    'Alice',
+    'Benjamin',
+    'Brooke',
+    'Caleb',
+    'Chloe',
+    'Daniel',
+    'Emily',
+    'Ethan',
+    'Fiona',
+    'Grace',
   ];
 
   List<String> searchResults = [];
